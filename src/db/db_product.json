@@ -1,0 +1,42 @@
+{
+  "db_product": [
+    {
+      "id": 1,
+      "product": "pro_1",
+      "price": "400$"
+    },
+    {
+      "id": 2,
+      "product": "pro_2",
+      "price": "150$"
+    },
+    {
+      "id": 3,
+      "product": "pro_3",
+      "price": "211$"
+    },
+    {
+      "id": 4,
+      "product": "pro_4",
+      "price": "399$"
+    },
+    {
+      "id": 5,
+      "product": "pro_5",
+      "price": "899$"
+    },
+    {
+      "id": 6,
+      "product": "pro_6",
+      "price": "10$"
+    },
+    [
+      "nike",
+      "399$"
+    ],
+    [
+      "Adidas",
+      "200$"
+    ]
+  ]
+}

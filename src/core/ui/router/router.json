@@ -1,0 +1,12 @@
+{
+    "add_value": {
+        "id": 1,
+        "name": "add_value",
+        "route": "/add"
+    },
+    "show_value": {
+        "id": 2,
+        "name": "show_value",
+        "route": "/show"
+    }
+}
