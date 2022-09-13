@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getProduct } from '../../../api/product_api';
 import { productSelector } from '../redux/slice/appProductSlice';
 import appProductState from '../redux/state/appProductState';
+import './Fragments.css'
 
 const ShowValue = () => {
  
