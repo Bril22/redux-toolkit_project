@@ -30,10 +30,11 @@
       "product": "pro_6",
       "price": "10$"
     },
-    [
-      "nike",
-      "399$"
-    ],
+    {
+      "id": 7,
+      "product": "nike",
+      "price": "399$"
+    },
     [
       "Adidas",
       "200$"
