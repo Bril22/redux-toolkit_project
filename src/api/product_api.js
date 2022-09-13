@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// run json server => json-server -w src/db/db_product.json -p 7000
+
 // get product
 export const getProduct = createAsyncThunk("db_product/getProducts", 
     async() => {
