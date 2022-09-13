@@ -1,10 +1,12 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import appProductReducer from "../reducer/appProductReducer";
 import appProductState from "../state/appProductState";
-import { getProduct, saveProduct } from "../../../../api/product_api";
+import { deleteProduct, editProduct, getProduct, saveProduct } from "../../../../api/product_api";
+import { getProductUsecases, saveProductUsecases, deleteProductUsecases, } from "../../../usecases/appProductUsecases";
 
 
-const productEntity = createEntityAdapter({
+
+export const productEntity = createEntityAdapter({
     selectId: (product) => product.id
 });
 
@@ -24,10 +26,19 @@ const appProductSlice = createSlice({
         },
         [saveProduct.fulfilled]: (state, action) => {
             productEntity.addOne(state, action.payload);
-        }
+        },
+        [deleteProduct.fulfilled]: (state, action) => {
+            productEntity.removeOne(state, action.payload);
+        },
+        [editProduct.fulfilled]: (state, action) => {
+            productEntity.updateOne(state, {id: action.payload.id, updates: action.payload});
+        },
+        // getProductUsecases,
+        // saveProductUsecases,
+        // deleteProductUsecases,
     }
 });
 
 export const productSelector = productEntity.getSelectors(state => state.product)
-export const {update} = appProductSlice.actions
+// export func for editValue comp
 export default appProductSlice.reducer

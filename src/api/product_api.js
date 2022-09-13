@@ -18,3 +18,19 @@ export const saveProduct = createAsyncThunk("products/saveProducts",
     });
         return response.data;
     });
+
+// delete product
+export const deleteProduct = createAsyncThunk("products/deleteProduct", 
+    async(id) => {
+        await axios.delete(`http://localhost:7000/db_product/${id}`);
+        return id;
+    });
+
+// edit product
+export const editProduct = createAsyncThunk("products/editProduct", 
+    async({id, product, price}) => {
+        const response = await axios.patch(`http://localhost:7000/db_product/${id}`, {
+            product, price
+        });
+        return response.data;
+    });

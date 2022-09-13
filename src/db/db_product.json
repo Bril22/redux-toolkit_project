@@ -39,6 +39,11 @@
       "product": "ball",
       "price": "20$",
       "id": 8
+    },
+    {
+      "product": "Bag",
+      "price": "99$",
+      "id": 10
     }
   ]
 }

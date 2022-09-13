@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { update } from '../redux/slice/appProductSlice';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { editProduct, getProduct } from '../../../api/product_api';
 import route from '../../../core/ui/router/router.json'
+import { productSelector } from '../redux/slice/appProductSlice';
 
 const EditValue = () => {
     const [product, setProduct] = useState("");
     const [price, setPrice] = useState("");
     const dispatch = useDispatch();
     const router = useNavigate();
+    const {id} = useParams();
 
     const handleProduct = (e) => {
       setProduct(e.target.value)
@@ -17,19 +19,31 @@ const EditValue = () => {
       setPrice(e.target.value)
     };
 
-    // handleSubmit = (e) => {
-    //   router(route.add_value.route);
-    // };
+    const selectProduct = useSelector((state) => productSelector.selectById(state, id));
 
-    const updateValue = (e) => {
+    // change data
+    const handleEdit = async (e) => {
       e.preventDefault();
-      dispatch(update({product, price}));
-      // router(route.add_value.route);
-    };
+      await dispatch(editProduct({id, product, price}));
+      router('/');
+    }
+
+    // get data
+    useEffect(() => {
+      dispatch(getProduct());
+    }, [dispatch]);
+
+    // show data that want to edit
+    useEffect(() => {
+      if(selectProduct) {
+        setProduct(selectProduct.product);
+        setPrice(selectProduct.price);
+      }
+    }, [selectProduct]);
 
   return (
     <> 
-      <form >
+      <form onSubmit={handleEdit}>
         <div>
           <label>Product</label>
           <input value={product} type="text" placeholder="Product" onChange={handleProduct} />
@@ -40,7 +54,7 @@ const EditValue = () => {
         </div>
         <div>
           <button>
-            Add
+            Edit
           </button>
         </div>
       </form>
