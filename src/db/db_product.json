@@ -35,9 +35,10 @@
       "product": "nike",
       "price": "399$"
     },
-    [
-      "Adidas",
-      "200$"
-    ]
+    {
+      "product": "ball",
+      "price": "20$",
+      "id": 8
+    }
   ]
 }

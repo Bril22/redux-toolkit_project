@@ -17,7 +17,7 @@ const ShowValue = () => {
 
   return (
     <div>
-      <Link to="add">Add Product</Link>
+      <Link to="add">{appProductState.addProduct}</Link>
        <table className="table">
          <thead>
            <tr>
