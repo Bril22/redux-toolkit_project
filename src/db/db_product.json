@@ -41,9 +41,14 @@
       "id": 8
     },
     {
-      "product": "Bag",
-      "price": "99$",
+      "product": "LV",
+      "price": "799$",
       "id": 10
+    },
+    {
+      "product": "Laptop",
+      "price": "1200$",
+      "id": 11
     }
   ]
 }

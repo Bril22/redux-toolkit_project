@@ -7,11 +7,10 @@ export const getProductUsecases = {
     }
 };
 
-export const saveProductUsecases = () => {
-    return (
-        saveProduct.fulfilled = (state, action) => {
-            productEntity.addOne(state, action.payload);
-        });
+export const saveProductUsecases = {
+    [saveProduct.fulfilled]: (state, action) => {
+        productEntity.addOne(state, action.payload);
+    }
 };
 
 export const deleteProductUsecases = () => {
